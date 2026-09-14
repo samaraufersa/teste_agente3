@@ -155,7 +155,11 @@ def executar_agente_ia(pergunta, df, chave_api):
     3. Não invente números ou dados fictícios.
     """
 
-    resposta = model.generate_content(prompt_final)
+    resposta = client.models.generate_content(
+        model='gemini-2.5-flash',
+        contents=prompt_final
+    )
+    
     return resposta.text
 
 # -----------------------------------------------------------------------------
