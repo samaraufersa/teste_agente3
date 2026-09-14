@@ -130,8 +130,7 @@ def executar_agente_ia(pergunta, df, chave_api):
     if not chave_api:
         return "⚠️ Por favor, informe sua API Key do Google Gemini para continuar."
 
-    genai.configure(api_key=chave_api)
-    model = genai.GenerativeModel('gemini-2.5-flash')
+    client = genai.Client(api_key=chave_api)
 
     # Resumo estruturado do DataFrame para contexto
     resumo_dados = f"""
